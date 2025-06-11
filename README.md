@@ -19,4 +19,4 @@ Projeto Java desenvolvido para a disciplina de Programação Modular.
 ## Autores
 
 - Renato Douglas - [@RenatoDNS](https://github.com/RenatoDNS)
-- Vicenzo Fonseca
+- Vicenzo Fonseca - [@vicenzofms](https://github.com/vicenzofms)
