@@ -4,10 +4,9 @@ Projeto Java desenvolvido para a disciplina de Programação Modular.
 
 ## Estrutura do projeto
 
-- Implementado com padrão MVC.
 - Classes organizadas em dois pacotes principais:
     - `model`: entidades do domínio como `Equipe`, `Projeto`, `Jurado`, etc.
-    - `controller`: repositórios Singleton para gerenciar coleções (`EquipesRepository`, `ApresentacoesRepository`).
+    - `service`: repositórios Singleton para gerenciar coleções (`EquipesService`, `ApresentacoesService`).
 
 ## Tecnologias utilizadas
 
