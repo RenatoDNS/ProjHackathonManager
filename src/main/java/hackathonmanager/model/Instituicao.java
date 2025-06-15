@@ -16,5 +16,4 @@ public abstract class Instituicao {
     public String getCnpj() {
         return this.cnpj;
     }
-
 }

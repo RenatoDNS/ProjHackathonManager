@@ -1,6 +1,7 @@
 package hackathonmanager.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Apresentacao {
     private Projeto projeto;
@@ -15,6 +16,10 @@ public class Apresentacao {
         this.dataHora = dataHora;
     }
 
+    public Projeto getProjeto() {
+        return this.projeto;
+    }
+
     public void avaliar() {
         this.banca.calcularNotaFinal();
         exibirApresentacao();
@@ -22,7 +27,10 @@ public class Apresentacao {
 
     // apenas visual
     private void exibirApresentacao(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         System.out.println("-------==+ Apresentação +==-------");
+        System.out.println("Local: " + this.local.getCodigo() + " no dia e hora: " + this.dataHora.format(formatter));
+        System.out.println("Projeto: " + this.projeto.getNome());
         projeto.getEquipe().listarMembros();
         this.banca.mostrarNotasDosJurados();
         System.out.println("\nNota Final: " + projeto.getNotaFinal());

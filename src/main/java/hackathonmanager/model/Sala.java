@@ -10,5 +10,4 @@ public class Sala {
     public String getCodigo() {
         return this.codigo;
     }
-
 }
