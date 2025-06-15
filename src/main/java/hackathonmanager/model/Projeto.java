@@ -3,8 +3,8 @@ package hackathonmanager.model;
 public class Projeto {
     private Profissional orientador;
     private Equipe equipe;
-    private Integer notaFinal;
     private String nome;
+    private Integer notaFinal;
 
     public Projeto(Profissional ori, Equipe eq, String n) {
         this.orientador = ori;

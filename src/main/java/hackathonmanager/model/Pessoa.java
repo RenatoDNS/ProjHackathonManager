@@ -12,11 +12,11 @@ public abstract class Pessoa {
         return this.nome;
     }
 
-    protected void setInstituicao(Instituicao inst) {
-        this.instituicao = inst;
-    }
-
     public Instituicao getInstituicao() {
         return this.instituicao;
+    }
+
+    protected void setInstituicao(Instituicao inst) {
+        this.instituicao = inst;
     }
 }

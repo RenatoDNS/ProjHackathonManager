@@ -1,0 +1,125 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam shadowing true
+skinparam linetype ortho
+skinparam classFontStyle bold
+
+    class Apresentacao {
+        - Projeto projeto
+        - Avaliavel banca
+        - Sala local
+        - LocalDateTime dataHora
+        + getProjeto() : Projeto
+        + avaliar() : void
+        - exibirApresentaao() : void
+    }
+
+    interface Avaliavel {
+        + calcularNotaFinal() : void
+        + mostrarNotasDosJurados() : void
+    }
+
+    class Banca {
+        - Projeto projetoAvaliado
+        - Map<Integer, Jurado> jurados
+        + adicionarJurado(Jurado) : void
+        + calcularNotaFinal() : void
+        + mostrarNotasDosJurados() : void
+    }
+
+    class Empresa
+
+    class Universidade
+
+    class Instituicao {
+        - String nome
+        - String cnpj
+        + getNome() : String
+        + getCnpj() : String
+    }
+
+    class Estudante {
+        - int matricula
+        + getMatricula() : int
+    }
+
+    class Equipe {
+        - List<Estudante> membros
+        - String nome
+        + adicionarMembro(Estudante) : void
+        + listarMembros() : void
+    }
+
+    class Pessoa {
+        - String nome
+        - Instituicao instituicao
+        + getNome() : String
+        + getInstituicao() : Instituicao
+        # setInstituicao(): void
+    }
+
+    class Profissional
+
+    class Jurado {
+        - int ultimaNotaDada
+        + darNota() : int
+        + getUltimaNotaDada() : int
+    }
+
+    class Projeto {
+        - Profissional orientador
+        - Equipe equipe
+        - Integer notaFinal
+        - String nome
+        + getOrientador() : Profissional
+        + getNome() : String
+        + receberNota(int) : void
+        + getNotaFinal() : int
+    }
+
+    class Sala {
+        - String codigo
+        + getCodigo() : String
+    }
+
+    Empresa --|> Instituicao
+    Universidade --|> Instituicao
+
+    Estudante --|> Pessoa
+    Profissional --|> Pessoa
+    Jurado --|> Profissional
+
+    Banca ..|> Avaliavel
+
+
+    Apresentacao --> Projeto
+    Apresentacao --> Avaliavel
+    Apresentacao --> Sala
+
+    Banca --> Projeto
+    Banca --> Jurado
+
+    Projeto --> Equipe
+    Projeto --> Profissional
+
+    Equipe --> Estudante
+
+    Pessoa --> Instituicao
+
+    class ApresentacoesService {
+        - List<Apresentacao> apresentacoes
+        + getApresentacoes() : ArrayList<Apresentacao>
+        + adicionarApresentacao(Apresentacao) : void
+    }
+
+    class EquipesService {
+        - List<Equipe> equipes
+        + getEquipes() : ArrayList<Equipe>
+        + adicionarEquipe(Equipe) : void
+    }
+
+    ApresentacoesService --> Apresentacao
+    EquipesService --> Equipe
+
+@enduml
